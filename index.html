@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panduan GitHub Pages & Custom Domain cPanel</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom scrollbar for code blocks */
+        .code-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        .code-scroll::-webkit-scrollbar-thumb {
+            background-color: #4b5563;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans leading-normal tracking-normal text-gray-900">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-10 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-bold text-xl text-blue-600">DevGuide</span>
+                </div>
+                <div class="flex items-center">
+                    <a href="#panduan" class="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Mulai Panduan</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-blue-600 pt-28 pb-20 sm:pt-32 sm:pb-24 lg:pb-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6">
+                Panduan GitHub Pages & <br class="hidden sm:block">Custom Domain cPanel
+            </h1>
+            <p class="mt-4 max-w-2xl text-lg sm:text-xl text-blue-100 mx-auto mb-8">
+                Pelajari cara mempublikasikan website statis Anda secara gratis di GitHub dan menghubungkannya dengan nama domain profesional Anda menggunakan cPanel.
+            </p>
+            <a href="#panduan" class="inline-block bg-white text-blue-600 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-gray-100 transition duration-300">
+                Mulai Belajar Sekarang
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content / Guide Section -->
+    <main id="panduan" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-gray-900">Langkah-Langkah Implementasi</h2>
+            <p class="mt-4 text-gray-600">Ikuti urutan langkah di bawah ini untuk menghubungkan GitHub Pages Anda ke domain kustom.</p>
+        </div>
+
+        <div class="space-y-12">
+            
+            <!-- Step 1 -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                <div class="flex items-center mb-4">
+                    <div class="bg-blue-600 text-white font-bold h-10 w-10 flex items-center justify-center rounded-full mr-4 text-lg">1</div>
+                    <h3 class="text-2xl font-bold text-gray-800">Siapkan Repository GitHub Pages</h3>
+                </div>
+                <p class="text-gray-600 mb-4">Pastikan Anda sudah memiliki kode website HTML/CSS/JS di dalam repository GitHub.</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2 ml-2">
+                    <li>Buat repository baru di GitHub.</li>
+                    <li>Upload file website Anda (pastikan ada file <code>index.html</code>).</li>
+                    <li>Buka menu <strong>Settings</strong> > <strong>Pages</strong> di repository tersebut.</li>
+                    <li>Pada bagian <em>Build and deployment</em>, pilih branch <code>main</code> (atau master), lalu klik <strong>Save</strong>.</li>
+                    <li>Tunggu beberapa saat hingga muncul URL GitHub Pages Anda (misal: <code>https://username.github.io/repo/</code>).</li>
+                </ul>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                <div class="flex items-center mb-4">
+                    <div class="bg-blue-600 text-white font-bold h-10 w-10 flex items-center justify-center rounded-full mr-4 text-lg">2</div>
+                    <h3 class="text-2xl font-bold text-gray-800">Tambahkan Custom Domain di GitHub</h3>
+                </div>
+                <p class="text-gray-600 mb-4">Beri tahu GitHub bahwa Anda akan menggunakan domain kustom untuk halaman ini.</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2 ml-2 mb-4">
+                    <li>Masih di menu <strong>Settings</strong> > <strong>Pages</strong>.</li>
+                    <li>Scroll ke bawah ke bagian <strong>Custom domain</strong>.</li>
+                    <li>Masukkan nama domain Anda (misal: <code>www.domainanda.com</code> atau <code>domainanda.com</code>).</li>
+                    <li>Klik tombol <strong>Save</strong>. (Proses ini akan otomatis membuat file bernama <code>CNAME</code> di repository Anda).</li>
+                </ul>
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-4">
+                    <p class="text-sm text-yellow-700"><strong>Catatan:</strong> Status DNS check mungkin akan error/pending pada tahap ini. Hal ini wajar karena kita belum mengatur DNS di cPanel.</p>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                <div class="flex items-center mb-4">
+                    <div class="bg-blue-600 text-white font-bold h-10 w-10 flex items-center justify-center rounded-full mr-4 text-lg">3</div>
+                    <h3 class="text-2xl font-bold text-gray-800">Konfigurasi DNS di cPanel</h3>
+                </div>
+                <p class="text-gray-600 mb-4">Sekarang buka dashboard cPanel dari provider hosting/domain Anda untuk mengarahkan domain ke GitHub.</p>
+                <ol class="list-decimal list-inside text-gray-600 space-y-2 ml-2 mb-6">
+                    <li>Login ke cPanel Anda.</li>
+                    <li>Cari dan buka menu <strong>Zone Editor</strong> (atau Advanced Zone Editor).</li>
+                    <li>Klik <strong>Manage</strong> pada domain yang ingin Anda atur.</li>
+                </ol>
+
+                <h4 class="font-bold text-gray-800 mb-2">A. Mengatur A Record (Untuk root domain: domainanda.com)</h4>
+                <p class="text-gray-600 mb-2 text-sm">Tambahkan 4 buah <strong>A Record</strong> yang mengarah ke IP Address GitHub Pages:</p>
+                <div class="bg-gray-800 rounded-lg p-4 overflow-x-auto code-scroll mb-6">
+                    <code class="text-green-400 text-sm whitespace-pre">
+185.199.108.153
+185.199.109.153
+185.199.110.153
+185.199.111.153
+                    </code>
+                </div>
+
+                <h4 class="font-bold text-gray-800 mb-2">B. Mengatur CNAME (Untuk subdomain: www.domainanda.com)</h4>
+                <p class="text-gray-600 mb-2 text-sm">Buat atau edit record CNAME untuk <code>www</code> dan arahkan ke URL GitHub Anda:</p>
+                <div class="bg-gray-800 rounded-lg p-4 overflow-x-auto code-scroll">
+                    <code class="text-green-400 text-sm whitespace-pre">
+Name: www.domainanda.com
+Type: CNAME
+Record: username.github.io
+                    </code>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                <div class="flex items-center mb-4">
+                    <div class="bg-blue-600 text-white font-bold h-10 w-10 flex items-center justify-center rounded-full mr-4 text-lg">4</div>
+                    <h3 class="text-2xl font-bold text-gray-800">Verifikasi & Aktifkan HTTPS</h3>
+                </div>
+                <p class="text-gray-600 mb-4">Setelah menyimpan pengaturan DNS di cPanel, Anda perlu menunggu masa propagasi DNS (biasanya beberapa menit hingga 24 jam).</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2 ml-2">
+                    <li>Kembali ke GitHub, buka <strong>Settings</strong> > <strong>Pages</strong>.</li>
+                    <li>Cek bagian Custom Domain. Jika DNS sudah terpropagasi, statusnya akan berubah menjadi <strong>DNS check successful</strong>.</li>
+                    <li>Centang kotak <strong>Enforce HTTPS</strong> agar website Anda aman dan memiliki gembok hijau di browser.</li>
+                    <li>Selesai! Website Anda sekarang dapat diakses melalui custom domain.</li>
+                </ul>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400 text-sm">
+                &copy; 2026 DevGuide. Dibuat menggunakan HTML & Tailwind CSS.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
